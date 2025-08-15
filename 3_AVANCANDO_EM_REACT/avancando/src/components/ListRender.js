@@ -1,12 +1,11 @@
-import React, { use, useState } from "react";
+import { useState } from "react";
 
 const ListRender = () => {
   const [list] = useState(["Matheus", "Pedro", "Josias"]);
-
   const [users, setUsers] = useState([
-    { id: 1, name: "Teste 1", age: 28 },
-    { id: 2, name: "Teste 2", age: 21 },
-    { id: 3, name: "Teste 3", age: 32 },
+    { id: 1, name: "Matheus", age: 31 },
+    { id: 2, name: "Jones", age: 19 },
+    { id: 3, name: "Scorpion", age: 201 },
   ]);
 
   const deleteRandom = () => {
@@ -19,10 +18,16 @@ const ListRender = () => {
 
   return (
     <div>
+      {/* render sem key primeiramente */}
       <ul>
         {list.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+      <ul>
+        {users.map((user) => (
           <li key={user.id}>
-            {user.name} - {user.age}
+            {user.name} - {user.age} anos
           </li>
         ))}
       </ul>
